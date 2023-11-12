@@ -11,7 +11,7 @@ export const mysqlTable = sqliteTableCreator((name) => `four-mutations_${name}`)
 export const shortUrls = sqliteTable("short_urls", {
 	id: text("id").primaryKey(),
 	originUrl: text("origin_url").notNull(),
-	clicks: integer("clicks", { mode: "number" }).default(0),
+	clicks: integer("clicks", { mode: "number" }).default(0).notNull(),
 	userId: text("user_id").notNull(),
 	createdAt: text("date").default(sql`CURRENT_TIME`),
 })

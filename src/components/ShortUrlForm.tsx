@@ -33,11 +33,15 @@ const ShortUrlForm: FC<ShortUrlFormProps> = () => {
 			const { id } = await postUrl(url)
 			setUrlState({
 				url: url,
-				shortenUrl: `https://${window.location.hostname}/${id}`,
+				shortenUrl: `http://${window.location.hostname}:${window.location.port}/${id}`,
 			})
 		} catch (err) {
-			alert(err?.message || "Failed to shorten url")
+			alert("Failed to shorten url")
 		}
+	}
+
+	const handleShortUrlClick = () => {
+		navigator.clipboard.writeText(urlState.shortenUrl)
 	}
 
 	return (
@@ -64,9 +68,12 @@ const ShortUrlForm: FC<ShortUrlFormProps> = () => {
 			</form>
 			<div className='flex flex-col items-center'>
 				{urlState.url && (
-					<a href={urlState.url} className='btn normal-case'>
+					<button
+						onClick={handleShortUrlClick}
+						className='btn normal-case'
+					>
 						{urlState.shortenUrl}
-					</a>
+					</button>
 				)}
 			</div>
 		</>
