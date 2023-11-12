@@ -7,22 +7,37 @@ const Header: FC = () => {
 
 	return (
 		<>
-			<div className='navbar bg-violet-500 text-white'>
+			<div className='navbar bg-violet-500 text-white px-6'>
 				<div className='flex-1'>
 					<h1 className='btn btn-ghost normal-case text-xl'>
-						daisyUI
+						ShortWave
 					</h1>
 				</div>
 				<div className='flex-none'>
 					<div className='flex gap-6 items-center'>
 						{!userId ? (
 							<>
-								<Link href={"/sign-in"}>Sign In</Link>
-								<Link href={"/sign-up"}>Sign Up</Link>
+								<Link
+									className='btn btn-ghost'
+									href={"/sign-in"}
+								>
+									Sign In
+								</Link>
+								<Link
+									className='btn btn-ghost'
+									href={"/sign-up"}
+								>
+									Sign Up
+								</Link>
 							</>
 						) : (
 							<>
-								<Link href={"/dashboard"}>Dashboard</Link>
+								<Link
+									className='btn btn-ghost'
+									href={"/dashboard"}
+								>
+									Dashboard
+								</Link>
 								<UserButton />
 							</>
 						)}
