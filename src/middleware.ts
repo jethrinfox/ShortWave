@@ -1,8 +1,15 @@
 import { authMiddleware } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
 
-export default authMiddleware({})
+export default authMiddleware({
+	publicRoutes: ["/"],
+})
 
 export const config = {
-	matcher: ["/dashboard", "/(api)(.*)"],
+	matcher: [
+		"/",
+		"/dashboard",
+		"/(api)(.*)",
+		"/(sign-in)(.*)",
+		"/(sign-up)(.*)",
+	],
 }
