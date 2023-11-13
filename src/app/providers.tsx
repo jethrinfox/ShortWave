@@ -2,9 +2,9 @@
 
 import { ClerkProvider } from "@clerk/nextjs"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { useState } from "react"
+import { FC, PropsWithChildren, useState } from "react"
 
-export default function Providers({ children }) {
+const Providers: FC<PropsWithChildren> = ({ children }) => {
 	const [queryClient] = useState(() => new QueryClient())
 
 	return (
@@ -13,3 +13,5 @@ export default function Providers({ children }) {
 		</QueryClientProvider>
 	)
 }
+
+export default Providers
