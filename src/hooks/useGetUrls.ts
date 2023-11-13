@@ -7,7 +7,7 @@ function useGetUrls() {
 	return useQuery({
 		queryKey: [SHORT_URLS_KEY],
 		queryFn: async () => {
-			const response = await fetch("/api/urls")
+			const response = await fetch("/api/shorten")
 			if (!response.ok) {
 				throw new Error("Network response was not ok")
 			}
