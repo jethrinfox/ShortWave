@@ -37,5 +37,5 @@ export async function POST(request: Request) {
 		})
 		.execute()
 
-	return Response.json({ id })
+	return Response.json({ status: "success" })
 }
